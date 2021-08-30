@@ -142,7 +142,7 @@ export default {
               showLabel: true,
               changeTag: true,
               labelWidth: null,
-              tag: "el-button",
+              tag: "c-button",
               tagIcon: "button",
               span: 24,
               layout: "colFormItem",

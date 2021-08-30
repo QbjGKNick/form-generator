@@ -1,5 +1,5 @@
 import loadScript from "./loadScript";
-import ELEMENT from "element-ui";
+import { Loading } from "@cci/cui";
 import pluginsConfig from "./pluginsConfig";
 
 let beautifierObj;
@@ -10,8 +10,7 @@ export default function loadBeautifier(cb) {
     cb(beautifierObj);
     return;
   }
-
-  const loading = ELEMENT.Loading.service({
+  const loading = Loading.service({
     fullscreen: true,
     lock: true,
     text: "格式化资源加载中...",

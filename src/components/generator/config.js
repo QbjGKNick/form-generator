@@ -544,7 +544,7 @@ export const layoutComponents = [
       showLabel: true,
       changeTag: true,
       labelWidth: null,
-      tag: "el-button",
+      tag: "c-button",
       tagIcon: "button",
       span: 24,
       layout: "colFormItem",
@@ -618,7 +618,7 @@ export const layoutComponents = [
               {
                 __config__: {
                   label: "按钮",
-                  tag: "el-button",
+                  tag: "c-button",
                   tagIcon: "button",
                   layout: "raw",
                   renderKey: 1595779809901

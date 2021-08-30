@@ -197,7 +197,7 @@
             />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-checkbox-group'"
+            v-if="activeData.__config__.tag === 'c-checkbox-group'"
             label="至少应选"
           >
             <c-input-number
@@ -208,7 +208,7 @@
             />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-checkbox-group'"
+            v-if="activeData.__config__.tag === 'c-checkbox-group'"
             label="最多可选"
           >
             <c-input-number
@@ -277,7 +277,7 @@
           <c-form-item
             v-if="
               activeData['icon'] !== undefined &&
-                activeData.__config__.tag === 'el-button'
+                activeData.__config__.tag === 'c-button'
             "
             label="按钮图标"
           >
@@ -416,7 +416,7 @@
           <c-form-item
             v-if="
               activeData.type !== undefined &&
-                'el-date-picker' === activeData.__config__.tag
+                'c-date-picker' === activeData.__config__.tag
             "
             label="时间类型"
           >
@@ -501,7 +501,7 @@
           <c-form-item
             v-if="
               activeData.type !== undefined &&
-                activeData.__config__.tag === 'el-button'
+                activeData.__config__.tag === 'c-button'
             "
             label="按钮类型"
           >
@@ -525,7 +525,7 @@
             />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-button'"
+            v-if="activeData.__config__.tag === 'c-button'"
             label="按钮文字"
           >
             <c-input
@@ -560,7 +560,7 @@
           </c-form-item>
           <template
             v-if="
-              ['el-checkbox-group', 'el-radio-group', 'c-select'].indexOf(
+              ['c-checkbox-group', 'c-radio-group', 'c-select'].indexOf(
                 activeData.__config__.tag
               ) > -1
             "
@@ -613,9 +613,7 @@
           </template>
 
           <template
-            v-if="
-              ['c-cascader', 'el-table'].includes(activeData.__config__.tag)
-            "
+            v-if="['c-cascader', 'c-table'].includes(activeData.__config__.tag)"
           >
             <c-divider>选项</c-divider>
             <c-form-item v-if="activeData.__config__.dataType" label="数据类型">
@@ -793,7 +791,7 @@
             <c-switch v-model="activeData.__config__.border" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-color-picker'"
+            v-if="activeData.__config__.tag === 'c-color-picker'"
             label="颜色格式"
           >
             <c-select
@@ -816,8 +814,8 @@
               activeData.size !== undefined &&
                 (activeData.__config__.optionType === 'button' ||
                   activeData.__config__.border ||
-                  activeData.__config__.tag === 'el-color-picker' ||
-                  activeData.__config__.tag === 'el-button')
+                  activeData.__config__.tag === 'c-color-picker' ||
+                  activeData.__config__.tag === 'c-button')
             "
             label="组件尺寸"
           >
@@ -882,7 +880,7 @@
             <c-switch v-model="activeData.__config__.showTip" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-upload'"
+            v-if="activeData.__config__.tag === 'c-upload'"
             label="多选文件"
           >
             <c-switch v-model="activeData.multiple" />
@@ -1201,7 +1199,7 @@ export default {
     dateOptions() {
       if (
         this.activeData.type !== undefined &&
-        this.activeData.__config__.tag === "el-date-picker"
+        this.activeData.__config__.tag === "c-date-picker"
       ) {
         if (this.activeData["start-placeholder"] === undefined) {
           return this.dateTypeOptions;
@@ -1226,15 +1224,15 @@ export default {
       return this.activeData.__config__.tag;
     },
     isShowMin() {
-      return ["c-input-number", "el-slider"].indexOf(this.activeTag) > -1;
+      return ["c-input-number", "c-slider"].indexOf(this.activeTag) > -1;
     },
     isShowMax() {
       return (
-        ["c-input-number", "el-slider", "el-rate"].indexOf(this.activeTag) > -1
+        ["c-input-number", "c-slider", "c-rate"].indexOf(this.activeTag) > -1
       );
     },
     isShowStep() {
-      return ["c-input-number", "el-slider"].indexOf(this.activeTag) > -1;
+      return ["c-input-number", "c-slider"].indexOf(this.activeTag) > -1;
     }
   },
   watch: {

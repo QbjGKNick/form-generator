@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "@/router";
 import Cui from "@cci/cui";
+import "@cci/cui/lib/theme-default/index.css";
 import "@/styles/index.scss";
 import "@/icons";
 import axios from "axios";

@@ -1,5 +1,5 @@
 import loadScript from "./loadScript";
-import ELEMENT from "element-ui";
+import { Loading } from "@cci/cui";
 import pluginsConfig from "./pluginsConfig";
 
 // monaco-editor单例
@@ -18,7 +18,7 @@ export default function loadMonaco(cb) {
   const { monacoEditorUrl: vs } = pluginsConfig;
 
   // 使用element ui实现加载提示
-  const loading = ELEMENT.Loading.service({
+  const loading = Loading.service({
     fullscreen: true,
     lock: true,
     text: "编辑器资源初始化中...",

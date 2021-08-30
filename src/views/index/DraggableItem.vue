@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */
 import draggable from "vuedraggable";
 import render from "@/components/render/render";
 
@@ -36,9 +37,9 @@ const layouts = {
     const child = renderChildren.apply(this, arguments);
     /* eslint-disable-next-line */
     let className =
-      this.activeId === config.formId ?
-        "drawing-item active-from-item" :
-        "drawing-item";
+      this.activeId === config.formId
+        ? "drawing-item active-from-item"
+        : "drawing-item";
     if (this.formConf.unFocusedComponentBorder) {
       className += " unfocus-bordered";
     }
@@ -77,9 +78,9 @@ const layouts = {
     const config = currentItem.__config__;
     /* eslint-disable-next-line */
     const className =
-      this.activeId === config.formId ?
-        "drawing-row-item active-from-item" :
-        "drawing-row-item";
+      this.activeId === config.formId
+        ? "drawing-row-item active-from-item"
+        : "drawing-row-item";
     let child = renderChildren.apply(this, arguments);
     if (currentItem.type === "flex") {
       child = (
@@ -157,7 +158,6 @@ export default {
   props: ["currentItem", "index", "drawingList", "activeId", "formConf"],
   render(h) {
     const layout = layouts[this.currentItem.__config__.layout];
-
     if (layout) {
       return layout.call(
         this,

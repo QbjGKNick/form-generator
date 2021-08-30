@@ -1,8 +1,11 @@
 import Vue from "vue";
+import Cui from "@cci/cui";
+import "@cci/cui/lib/theme-default/index.css";
 import { loadScriptQueue } from "@/utils/loadScript";
 import axios from "axios";
 import Tinymce from "@/components/tinymce/index.vue";
 
+Vue.use(Cui);
 Vue.component("tinymce", Tinymce);
 Vue.prototype.$axios = axios;
 
