@@ -26,7 +26,7 @@
           :class="active===icon?'active-item':''"
           @click="onSelect(icon)"
         >
-          <i :class="icon" />
+          <i :class="icon"></i>
           <div>{{ icon }}</div>
         </li>
       </ul>
@@ -34,9 +34,9 @@
   </div>
 </template>
 <script>
-import iconList from '@/utils/icon.json'
+import iconList from '@/utils/icon.json';
 
-const originList = iconList.map(name => `el-icon-${name}`)
+const originList = iconList.map(name => `el-icon-${name}`);
 
 export default {
   inheritAttrs: false,
@@ -46,39 +46,39 @@ export default {
       iconList: originList,
       active: null,
       key: ''
-    }
+    };
   },
   watch: {
     key(val) {
       if (val) {
-        this.iconList = originList.filter(name => name.indexOf(val) > -1)
+        this.iconList = originList.filter(name => name.indexOf(val) > -1);
       } else {
-        this.iconList = originList
+        this.iconList = originList;
       }
     }
   },
   methods: {
     onOpen() {
-      this.active = this.current
-      this.key = ''
-      this.scrollToActive()
+      this.active = this.current;
+      this.key = '';
+      this.scrollToActive();
     },
     onClose() {},
     onSelect(icon) {
-      this.active = icon
-      this.$emit('select', icon)
-      this.$emit('update:visible', false)
+      this.active = icon;
+      this.$emit('select', icon);
+      this.$emit('update:visible', false);
     },
     scrollToActive() {
       this.$nextTick(() => {
-        const $activeItem = this.active
-          ? document.getElementsByClassName('active-item')[0]
-          : this.$refs.iconWrap.childNodes[0]
-        $activeItem && $activeItem.scrollIntoView && $activeItem.scrollIntoView()
-      })
+        const $activeItem = this.active ?
+          document.getElementsByClassName('active-item')[0] :
+          this.$refs.iconWrap.childNodes[0];
+        $activeItem && $activeItem.scrollIntoView && $activeItem.scrollIntoView();
+      });
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .icon-ul {

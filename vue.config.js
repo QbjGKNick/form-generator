@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 const minify = process.env.NODE_ENV === 'development' ? false : {
   collapseWhitespace: true,
@@ -9,16 +9,16 @@ const minify = process.env.NODE_ENV === 'development' ? false : {
   useShortDoctype: true,
   minifyCSS: true,
   minifyJS: true
-}
+};
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/form-generator/'
-    : '/',
+  publicPath: process.env.NODE_ENV === 'production' ?
+    '/form-generator/' :
+    '/',
   pages: {
     index: {
       entry: 'src/views/index/main.js',
@@ -51,7 +51,7 @@ module.exports = {
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))
-      .end()
+      .end();
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -62,6 +62,6 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]'
       })
-      .end()
+      .end();
   }
-}
+};

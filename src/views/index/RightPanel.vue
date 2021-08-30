@@ -6,7 +6,7 @@
     </el-tabs>
     <div class="field-box">
       <a class="document-link" target="_blank" :href="documentLink" title="查看组件文档">
-        <i class="el-icon-link" />
+        <i class="el-icon-link"></i>
       </a>
       <el-scrollbar class="right-scrollbar">
         <!-- 组件属性 -->
@@ -312,7 +312,7 @@
             >
               <div v-for="(item, index) in activeData.__slot__.options" :key="index" class="select-item">
                 <div class="select-line-icon option-drag">
-                  <i class="el-icon-s-operation" />
+                  <i class="el-icon-s-operation"></i>
                 </div>
                 <el-input v-model="item.label" placeholder="选项名" size="small" />
                 <el-input
@@ -322,7 +322,7 @@
                   @input="setOptionValue(item, $event)"
                 />
                 <div class="close-btn select-line-icon" @click="activeData.__slot__.options.splice(index, 1)">
-                  <i class="el-icon-remove-outline" />
+                  <i class="el-icon-remove-outline"></i>
                 </div>
               </div>
             </draggable>
@@ -571,7 +571,7 @@
               class="reg-item"
             >
               <span class="close-btn" @click="activeData.__config__.regList.splice(index, 1)">
-                <i class="el-icon-close" />
+                <i class="el-icon-close"></i>
               </span>
               <el-form-item label="表达式">
                 <el-input v-model="item.pattern" placeholder="请输入正则" />
@@ -649,14 +649,14 @@
 </template>
 
 <script>
-import { isArray } from 'util'
-import TreeNodeDialog from '@/views/index/TreeNodeDialog'
-import { isNumberStr } from '@/utils/index'
-import IconsDialog from './IconsDialog'
+import { isArray } from 'util';
+import TreeNodeDialog from '@/views/index/TreeNodeDialog';
+import { isNumberStr } from '@/utils/index';
+import IconsDialog from './IconsDialog';
 import {
   inputComponents, selectComponents, layoutComponents
-} from '@/components/generator/config'
-import { saveFormConf } from '@/utils/db'
+} from '@/components/generator/config';
+import { saveFormConf } from '@/utils/db';
 
 const dateTimeFormat = {
   date: 'yyyy-MM-dd',
@@ -667,10 +667,10 @@ const dateTimeFormat = {
   daterange: 'yyyy-MM-dd',
   monthrange: 'yyyy-MM',
   datetimerange: 'yyyy-MM-dd HH:mm:ss'
-}
+};
 
 // 使changeRenderKey在目标组件改变时可用
-const needRerenderList = ['tinymce']
+const needRerenderList = ['tinymce'];
 
 export default {
   components: {
@@ -767,30 +767,30 @@ export default {
       ],
       layoutTreeProps: {
         label(data, node) {
-          const config = data.__config__
-          return data.componentName || `${config.label}: ${data.__vModel__}`
+          const config = data.__config__;
+          return data.componentName || `${config.label}: ${data.__vModel__}`;
         }
       }
-    }
+    };
   },
   computed: {
     documentLink() {
       return (
-        this.activeData.__config__.document
-        || 'https://element.eleme.cn/#/zh-CN/component/installation'
-      )
+        this.activeData.__config__.document ||
+        'https://element.eleme.cn/#/zh-CN/component/installation'
+      );
     },
     dateOptions() {
       if (
-        this.activeData.type !== undefined
-        && this.activeData.__config__.tag === 'el-date-picker'
+        this.activeData.type !== undefined &&
+        this.activeData.__config__.tag === 'el-date-picker'
       ) {
         if (this.activeData['start-placeholder'] === undefined) {
-          return this.dateTypeOptions
+          return this.dateTypeOptions;
         }
-        return this.dateRangeTypeOptions
+        return this.dateRangeTypeOptions;
       }
-      return []
+      return [];
     },
     tagList() {
       return [
@@ -802,25 +802,25 @@ export default {
           label: '选择型组件',
           options: selectComponents
         }
-      ]
+      ];
     },
     activeTag() {
-      return this.activeData.__config__.tag
+      return this.activeData.__config__.tag;
     },
     isShowMin() {
-      return ['el-input-number', 'el-slider'].indexOf(this.activeTag) > -1
+      return ['el-input-number', 'el-slider'].indexOf(this.activeTag) > -1;
     },
     isShowMax() {
-      return ['el-input-number', 'el-slider', 'el-rate'].indexOf(this.activeTag) > -1
+      return ['el-input-number', 'el-slider', 'el-rate'].indexOf(this.activeTag) > -1;
     },
     isShowStep() {
-      return ['el-input-number', 'el-slider'].indexOf(this.activeTag) > -1
+      return ['el-input-number', 'el-slider'].indexOf(this.activeTag) > -1;
     }
   },
   watch: {
     formConf: {
       handler(val) {
-        saveFormConf(val)
+        saveFormConf(val);
       },
       deep: true
     }
@@ -830,18 +830,18 @@ export default {
       this.activeData.__config__.regList.push({
         pattern: '',
         message: ''
-      })
+      });
     },
     addSelectItem() {
       this.activeData.__slot__.options.push({
         label: '',
         value: ''
-      })
+      });
     },
     addTreeItem() {
-      ++this.idGlobal
-      this.dialogVisible = true
-      this.currentNode = this.activeData.options
+      ++this.idGlobal;
+      this.dialogVisible = true;
+      this.currentNode = this.activeData.options;
     },
     renderContent(h, { node, data, store }) {
       return (
@@ -858,39 +858,39 @@ export default {
             ></i>
           </span>
         </div>
-      )
+      );
     },
     append(data) {
       if (!data.children) {
-        this.$set(data, 'children', [])
+        this.$set(data, 'children', []);
       }
-      this.dialogVisible = true
-      this.currentNode = data.children
+      this.dialogVisible = true;
+      this.currentNode = data.children;
     },
     remove(node, data) {
-      this.activeData.__config__.defaultValue = [] // 避免删除时报错
-      const { parent } = node
-      const children = parent.data.children || parent.data
-      const index = children.findIndex(d => d.id === data.id)
-      children.splice(index, 1)
+      this.activeData.__config__.defaultValue = []; // 避免删除时报错
+      const { parent } = node;
+      const children = parent.data.children || parent.data;
+      const index = children.findIndex(d => d.id === data.id);
+      children.splice(index, 1);
     },
     addNode(data) {
-      this.currentNode.push(data)
+      this.currentNode.push(data);
     },
     setOptionValue(item, val) {
-      item.value = isNumberStr(val) ? +val : val
+      item.value = isNumberStr(val) ? +val : val;
     },
     setDefaultValue(val) {
       if (Array.isArray(val)) {
-        return val.join(',')
+        return val.join(',');
       }
       // if (['string', 'number'].indexOf(typeof val) > -1) {
       //   return val
       // }
       if (typeof val === 'boolean') {
-        return `${val}`
+        return `${val}`;
       }
-      return val
+      return val;
     },
     onDefaultValueInput(str) {
       if (isArray(this.activeData.__config__.defaultValue)) {
@@ -899,78 +899,78 @@ export default {
           this.activeData.__config__,
           'defaultValue',
           str.split(',').map(val => (isNumberStr(val) ? +val : val))
-        )
+        );
       } else if (['true', 'false'].indexOf(str) > -1) {
         // 布尔
-        this.$set(this.activeData.__config__, 'defaultValue', JSON.parse(str))
+        this.$set(this.activeData.__config__, 'defaultValue', JSON.parse(str));
       } else {
         // 字符串和数字
         this.$set(
           this.activeData.__config__,
           'defaultValue',
           isNumberStr(str) ? +str : str
-        )
+        );
       }
     },
     onSwitchValueInput(val, name) {
       if (['true', 'false'].indexOf(val) > -1) {
-        this.$set(this.activeData, name, JSON.parse(val))
+        this.$set(this.activeData, name, JSON.parse(val));
       } else {
-        this.$set(this.activeData, name, isNumberStr(val) ? +val : val)
+        this.$set(this.activeData, name, isNumberStr(val) ? +val : val);
       }
     },
     setTimeValue(val, type) {
-      const valueFormat = type === 'week' ? dateTimeFormat.date : val
-      this.$set(this.activeData.__config__, 'defaultValue', null)
-      this.$set(this.activeData, 'value-format', valueFormat)
-      this.$set(this.activeData, 'format', val)
+      const valueFormat = type === 'week' ? dateTimeFormat.date : val;
+      this.$set(this.activeData.__config__, 'defaultValue', null);
+      this.$set(this.activeData, 'value-format', valueFormat);
+      this.$set(this.activeData, 'format', val);
     },
     spanChange(val) {
-      this.formConf.span = val
+      this.formConf.span = val;
     },
     multipleChange(val) {
-      this.$set(this.activeData.__config__, 'defaultValue', val ? [] : '')
+      this.$set(this.activeData.__config__, 'defaultValue', val ? [] : '');
     },
     dateTypeChange(val) {
-      this.setTimeValue(dateTimeFormat[val], val)
+      this.setTimeValue(dateTimeFormat[val], val);
     },
     rangeChange(val) {
       this.$set(
         this.activeData.__config__,
         'defaultValue',
         val ? [this.activeData.min, this.activeData.max] : this.activeData.min
-      )
+      );
     },
     rateTextChange(val) {
-      if (val) this.activeData['show-score'] = false
+      if (val) this.activeData['show-score'] = false;
     },
     rateScoreChange(val) {
-      if (val) this.activeData['show-text'] = false
+      if (val) this.activeData['show-text'] = false;
     },
     colorFormatChange(val) {
-      this.activeData.__config__.defaultValue = null
-      this.activeData['show-alpha'] = val.indexOf('a') > -1
-      this.activeData.__config__.renderKey = +new Date() // 更新renderKey,重新渲染该组件
+      this.activeData.__config__.defaultValue = null;
+      this.activeData['show-alpha'] = val.indexOf('a') > -1;
+      this.activeData.__config__.renderKey = +new Date(); // 更新renderKey,重新渲染该组件
     },
     openIconsDialog(model) {
-      this.iconsVisible = true
-      this.currentIconModel = model
+      this.iconsVisible = true;
+      this.currentIconModel = model;
     },
     setIcon(val) {
-      this.activeData[this.currentIconModel] = val
+      this.activeData[this.currentIconModel] = val;
     },
     tagChange(tagIcon) {
-      let target = inputComponents.find(item => item.__config__.tagIcon === tagIcon)
-      if (!target) target = selectComponents.find(item => item.__config__.tagIcon === tagIcon)
-      this.$emit('tag-change', target)
+      let target = inputComponents.find(item => item.__config__.tagIcon === tagIcon);
+      if (!target) target = selectComponents.find(item => item.__config__.tagIcon === tagIcon);
+      this.$emit('tag-change', target);
     },
     changeRenderKey() {
       if (needRerenderList.includes(this.activeData.__config__.tag)) {
-        this.activeData.__config__.renderKey = +new Date()
+        this.activeData.__config__.renderKey = +new Date();
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
