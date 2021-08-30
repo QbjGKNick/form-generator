@@ -24,6 +24,7 @@
     "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
+    "@cci/vue-cli-plugin-babel": "1.1.2",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",

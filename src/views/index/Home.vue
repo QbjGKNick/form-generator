@@ -294,6 +294,7 @@ export default {
     clipboard.on("error", e => {
       this.$message.error("代码复制失败");
     });
+    console.log(this.activeData, "---------mounted-data-------");
   },
   methods: {
     setObjectValueReduce(obj, strKeys, data) {

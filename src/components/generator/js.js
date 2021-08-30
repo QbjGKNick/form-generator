@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { isArray } from "util";
 import { exportDefault, titleCase, deepClone } from "@/utils/index";
 import ruleTrigger from "./ruleTrigger";

@@ -6,12 +6,12 @@ const ruleTrigger = {
   "c-input": "blur",
   "c-input-number": "blur",
   "c-select": "change",
-  "el-radio-group": "change",
-  "el-checkbox-group": "change",
+  "c-radio-group": "change",
+  "c-checkbox-group": "change",
   "c-cascader": "change",
-  "el-time-picker": "change",
-  "el-date-picker": "change",
-  "el-rate": "change"
+  "c-time-picker": "change",
+  "c-date-picker": "change",
+  "c-rate": "change"
 };
 
 const layouts = {
