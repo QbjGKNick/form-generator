@@ -11,7 +11,7 @@
     >
       <c-row :gutter="15">
         <c-form
-          ref="elForm"
+          ref="cForm"
           :model="formData"
           :rules="rules"
           size="medium"
@@ -104,7 +104,7 @@ export default {
       this.$emit("update:visible", false);
     },
     handelConfirm() {
-      this.$refs.elForm.validate(valid => {
+      this.$refs.cForm.validate(valid => {
         if (!valid) return;
         this.$emit("confirm", { ...this.formData });
         this.close();

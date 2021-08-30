@@ -30,7 +30,7 @@ export default {
               labelWidth: null,
               showLabel: true,
               changeTag: true,
-              tag: "el-input",
+              tag: "c-input",
               tagIcon: "input",
               required: true,
               layout: "colFormItem",
@@ -169,15 +169,15 @@ export default {
             console.log(
               `%c【测试按钮1】点击事件里可以访问当前表单：
                 1) formModel='formData', 所以this.formData可以拿到当前表单的model
-                2) formRef='elForm', 所以this.$refs.elForm可以拿到当前表单的ref(vue组件)
+                2) formRef='cForm', 所以this.$refs.cForm可以拿到当前表单的ref(vue组件)
               `,
               "color:#409EFF;font-size: 15px"
             );
             console.log("表单的Model：", this.formData);
-            console.log("表单的ref：", this.$refs.elForm);
+            console.log("表单的ref：", this.$refs.cForm);
           }
         },
-        formRef: "elForm",
+        formRef: "cForm",
         formModel: "formData",
         size: "small",
         labelPosition: "right",
@@ -197,7 +197,7 @@ export default {
               labelWidth: null,
               showLabel: true,
               changeTag: true,
-              tag: "el-input",
+              tag: "c-input",
               tagIcon: "input",
               required: true,
               layout: "colFormItem",
@@ -260,7 +260,7 @@ export default {
             __vModel__: "field101"
           }
         ],
-        formRef: "elForm",
+        formRef: "cForm",
         formModel: "formData",
         size: "small",
         labelPosition: "right",

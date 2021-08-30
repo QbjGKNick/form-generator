@@ -122,7 +122,7 @@ const layouts = {
 };
 
 const tags = {
-  "el-button": el => {
+  "c-button": el => {
     const { tag, disabled } = attrBuilder(el);
     const type = el.type ? `type="${el.type}"` : "";
     const icon = el.icon ? `icon="${el.icon}"` : "";
@@ -135,7 +135,7 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${type} ${icon} ${round} ${size} ${plain} ${disabled} ${circle}>${child}</${tag}>`;
   },
-  "el-input": el => {
+  "c-input": el => {
     const {
       tag,
       disabled,
@@ -164,7 +164,7 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${vModel} ${type} ${placeholder} ${maxlength} ${showWordLimit} ${readonly} ${disabled} ${clearable} ${prefixIcon} ${suffixIcon} ${showPassword} ${autosize} ${width}>${child}</${tag}>`;
   },
-  "el-input-number": el => {
+  "c-input-number": el => {
     const { tag, disabled, vModel, placeholder } = attrBuilder(el);
     const controlsPosition = el["controls-position"]
       ? `controls-position=${el["controls-position"]}`
@@ -177,7 +177,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${placeholder} ${step} ${stepStrictly} ${precision} ${controlsPosition} ${min} ${max} ${disabled}></${tag}>`;
   },
-  "el-select": el => {
+  "c-select": el => {
     const {
       tag,
       disabled,
@@ -193,7 +193,7 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${vModel} ${placeholder} ${disabled} ${multiple} ${filterable} ${clearable} ${width}>${child}</${tag}>`;
   },
-  "el-radio-group": el => {
+  "c-radio-group": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const size = `size="${el.size}"`;
     let child = buildElRadioGroupChild(el);
@@ -201,7 +201,7 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${vModel} ${size} ${disabled}>${child}</${tag}>`;
   },
-  "el-checkbox-group": el => {
+  "c-checkbox-group": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const size = `size="${el.size}"`;
     const min = el.min ? `:min="${el.min}"` : "";
@@ -211,7 +211,7 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${vModel} ${min} ${max} ${size} ${disabled}>${child}</${tag}>`;
   },
-  "el-switch": el => {
+  "c-switch": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const activeText = el["active-text"]
       ? `active-text="${el["active-text"]}"`
@@ -236,7 +236,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${activeText} ${inactiveText} ${activeColor} ${inactiveColor} ${activeValue} ${inactiveValue} ${disabled}></${tag}>`;
   },
-  "el-cascader": el => {
+  "c-cascader": el => {
     const {
       tag,
       disabled,
@@ -255,7 +255,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${options} ${props} ${width} ${showAllLevels} ${placeholder} ${separator} ${filterable} ${clearable} ${disabled}></${tag}>`;
   },
-  "el-slider": el => {
+  "c-slider": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const min = el.min ? `:min='${el.min}'` : "";
     const max = el.max ? `:max='${el.max}'` : "";
@@ -267,7 +267,7 @@ const tags = {
 
     return `<${tag} ${min} ${max} ${step} ${vModel} ${range} ${showStops} ${disabled}></${tag}>`;
   },
-  "el-time-picker": el => {
+  "c-time-picker": el => {
     const {
       tag,
       disabled,
@@ -296,7 +296,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${isRange} ${format} ${valueFormat} ${pickerOptions} ${width} ${placeholder} ${startPlaceholder} ${endPlaceholder} ${rangeSeparator} ${clearable} ${disabled}></${tag}>`;
   },
-  "el-date-picker": el => {
+  "c-date-picker": el => {
     const {
       tag,
       disabled,
@@ -323,7 +323,7 @@ const tags = {
 
     return `<${tag} ${type} ${vModel} ${format} ${valueFormat} ${width} ${placeholder} ${startPlaceholder} ${endPlaceholder} ${rangeSeparator} ${clearable} ${readonly} ${disabled}></${tag}>`;
   },
-  "el-rate": el => {
+  "c-rate": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const max = el.max ? `:max='${el.max}'` : "";
     const allowHalf = el["allow-half"] ? "allow-half" : "";
@@ -332,7 +332,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${max} ${allowHalf} ${showText} ${showScore} ${disabled}></${tag}>`;
   },
-  "el-color-picker": el => {
+  "c-color-picker": el => {
     const { tag, disabled, vModel } = attrBuilder(el);
     const size = `size="${el.size}"`;
     const showAlpha = el["show-alpha"] ? "show-alpha" : "";
@@ -342,7 +342,7 @@ const tags = {
 
     return `<${tag} ${vModel} ${size} ${showAlpha} ${colorFormat} ${disabled}></${tag}>`;
   },
-  "el-upload": el => {
+  "c-upload": el => {
     const { tag } = el.__config__;
     const disabled = el.disabled ? ":disabled='true'" : "";
     const action = el.action ? `:action="${el.__vModel__}Action"` : "";
@@ -390,7 +390,7 @@ function buildElButtonChild(scheme) {
   return children.join("\n");
 }
 
-// el-input 子级
+// c-input 子级
 function buildElInputChild(scheme) {
   const children = [];
   const slot = scheme.__slot__;
@@ -403,7 +403,7 @@ function buildElInputChild(scheme) {
   return children.join("\n");
 }
 
-// el-select 子级
+// c-select 子级
 function buildElSelectChild(scheme) {
   const children = [];
   const slot = scheme.__slot__;
@@ -421,7 +421,7 @@ function buildElRadioGroupChild(scheme) {
   const slot = scheme.__slot__;
   const config = scheme.__config__;
   if (slot && slot.options && slot.options.length) {
-    const tag = config.optionType === "button" ? "el-radio-button" : "el-radio";
+    const tag = config.optionType === "button" ? "c-radio-button" : "c-radio";
     const border = config.border ? "border" : "";
     children.push(
       `<${tag} v-for="(item, index) in ${scheme.__vModel__}Options" :key="index" :label="item.value" :disabled="item.disabled" ${border}>{{item.label}}</${tag}>`
@@ -437,7 +437,7 @@ function buildElCheckboxGroupChild(scheme) {
   const config = scheme.__config__;
   if (slot && slot.options && slot.options.length) {
     const tag =
-      config.optionType === "button" ? "el-checkbox-button" : "el-checkbox";
+      config.optionType === "button" ? "c-checkbox-button" : "c-checkbox";
     const border = config.border ? "border" : "";
     children.push(
       `<${tag} v-for="(item, index) in ${scheme.__vModel__}Options" :key="index" :label="item.value" :disabled="item.disabled" ${border}>{{item.label}}</${tag}>`

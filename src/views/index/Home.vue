@@ -3,10 +3,8 @@
     <div class="left-board">
       <div class="logo-wrapper">
         <div class="logo">
-          <img :src="logo" alt="logo" /> Form Generator
-          <!-- <a class="github" href="https://github.com/JakHuang/form-generator" target="_blank">
-            <img src="https://github.githubassets.com/pinned-octocat.svg" alt>
-          </a> -->
+          <img :src="logo" alt="logo" />
+          表单生成器
         </div>
       </div>
       <c-scrollbar class="left-scrollbar">
@@ -136,6 +134,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import draggable from "vuedraggable";
 import { debounce } from "throttle-debounce";
 import { saveAs } from "file-saver";
@@ -383,7 +382,9 @@ export default {
         delete config.label; // rowFormItem无需配置label属性
       }
       if (Array.isArray(config.children)) {
-        config.children = config.children.map(childItem => this.createIdAndKey(childItem));
+        config.children = config.children.map(childItem =>
+          this.createIdAndKey(childItem)
+        );
       }
       return item;
     },
@@ -491,7 +492,8 @@ export default {
         list.splice(index, 1, newTag);
       } else {
         list.forEach(item => {
-          if (Array.isArray(item.__config__.children)) this.updateDrawingList(newTag, item.__config__.children);
+          if (Array.isArray(item.__config__.children))
+            this.updateDrawingList(newTag, item.__config__.children);
         });
       }
     },

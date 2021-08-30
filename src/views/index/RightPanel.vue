@@ -295,7 +295,7 @@
             </c-input>
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-cascader'"
+            v-if="activeData.__config__.tag === 'c-cascader'"
             label="选项分隔符"
           >
             <c-input
@@ -340,7 +340,7 @@
             <c-input-number v-model="activeData.step" placeholder="步数" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-input-number'"
+            v-if="activeData.__config__.tag === 'c-input-number'"
             label="精度"
           >
             <c-input-number
@@ -350,7 +350,7 @@
             />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-input-number'"
+            v-if="activeData.__config__.tag === 'c-input-number'"
             label="按钮位置"
           >
             <c-radio-group v-model="activeData['controls-position']">
@@ -560,7 +560,7 @@
           </c-form-item>
           <template
             v-if="
-              ['el-checkbox-group', 'el-radio-group', 'el-select'].indexOf(
+              ['el-checkbox-group', 'el-radio-group', 'c-select'].indexOf(
                 activeData.__config__.tag
               ) > -1
             "
@@ -614,7 +614,7 @@
 
           <template
             v-if="
-              ['el-cascader', 'el-table'].includes(activeData.__config__.tag)
+              ['c-cascader', 'el-table'].includes(activeData.__config__.tag)
             "
           >
             <c-divider>选项</c-divider>
@@ -840,31 +840,31 @@
             <c-switch v-model="activeData['show-word-limit']" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-input-number'"
+            v-if="activeData.__config__.tag === 'c-input-number'"
             label="严格步数"
           >
             <c-switch v-model="activeData['step-strictly']" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-cascader'"
+            v-if="activeData.__config__.tag === 'c-cascader'"
             label="任选层级"
           >
             <c-switch v-model="activeData.props.props.checkStrictly" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-cascader'"
+            v-if="activeData.__config__.tag === 'c-cascader'"
             label="是否多选"
           >
             <c-switch v-model="activeData.props.props.multiple" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-cascader'"
+            v-if="activeData.__config__.tag === 'c-cascader'"
             label="展示全路径"
           >
             <c-switch v-model="activeData['show-all-levels']" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-cascader'"
+            v-if="activeData.__config__.tag === 'c-cascader'"
             label="可否筛选"
           >
             <c-switch v-model="activeData.filterable" />
@@ -906,13 +906,13 @@
             <c-switch v-model="activeData.disabled" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-select'"
+            v-if="activeData.__config__.tag === 'c-select'"
             label="能否搜索"
           >
             <c-switch v-model="activeData.filterable" />
           </c-form-item>
           <c-form-item
-            v-if="activeData.__config__.tag === 'el-select'"
+            v-if="activeData.__config__.tag === 'c-select'"
             label="是否多选"
           >
             <c-switch v-model="activeData.multiple" @change="multipleChange" />
@@ -1226,15 +1226,15 @@ export default {
       return this.activeData.__config__.tag;
     },
     isShowMin() {
-      return ["el-input-number", "el-slider"].indexOf(this.activeTag) > -1;
+      return ["c-input-number", "el-slider"].indexOf(this.activeTag) > -1;
     },
     isShowMax() {
       return (
-        ["el-input-number", "el-slider", "el-rate"].indexOf(this.activeTag) > -1
+        ["c-input-number", "el-slider", "el-rate"].indexOf(this.activeTag) > -1
       );
     },
     isShowStep() {
-      return ["el-input-number", "el-slider"].indexOf(this.activeTag) > -1;
+      return ["c-input-number", "el-slider"].indexOf(this.activeTag) > -1;
     }
   },
   watch: {

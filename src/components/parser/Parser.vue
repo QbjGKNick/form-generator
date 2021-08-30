@@ -3,12 +3,12 @@ import { deepClone } from "@/utils/index";
 import render from "@/components/render/render.js";
 
 const ruleTrigger = {
-  "el-input": "blur",
-  "el-input-number": "blur",
-  "el-select": "change",
+  "c-input": "blur",
+  "c-input-number": "blur",
+  "c-select": "change",
   "el-radio-group": "change",
   "el-checkbox-group": "change",
-  "el-cascader": "change",
+  "c-cascader": "change",
   "el-time-picker": "change",
   "el-date-picker": "change",
   "el-rate": "change"

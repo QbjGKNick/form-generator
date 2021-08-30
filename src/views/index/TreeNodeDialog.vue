@@ -10,7 +10,7 @@
     >
       <c-row :gutter="0">
         <c-form
-          ref="elForm"
+          ref="cForm"
           :model="formData"
           :rules="rules"
           size="small"
@@ -131,7 +131,7 @@ export default {
       this.$emit("update:visible", false);
     },
     handelConfirm() {
-      this.$refs.elForm.validate(valid => {
+      this.$refs.cForm.validate(valid => {
         if (!valid) return;
         if (this.dataType === "number") {
           this.formData.value = parseFloat(this.formData.value);
