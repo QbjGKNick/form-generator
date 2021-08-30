@@ -2,10 +2,16 @@ export default {
   options(h, conf, key) {
     const list = [];
     conf.__slot__.options.forEach(item => {
-      if (conf.__config__.optionType === 'button') {
-        list.push(<el-radio-button label={item.value}>{item.label}</el-radio-button>);
+      if (conf.__config__.optionType === "button") {
+        list.push(
+          <c-radio-button label={item.value}>{item.label}</c-radio-button>
+        );
       } else {
-        list.push(<el-radio label={item.value} border={conf.border}>{item.label}</el-radio>);
+        list.push(
+          <c-radio label={item.value} border={conf.border}>
+            {item.label}
+          </c-radio>
+        );
       }
     });
     return list;

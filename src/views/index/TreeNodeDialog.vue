@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog
+    <c-dialog
       v-bind="$attrs"
       :close-on-click-modal="false"
       :modal-append-to-body="false"
@@ -8,71 +8,62 @@
       @open="onOpen"
       @close="onClose"
     >
-      <el-row :gutter="0">
-        <el-form
+      <c-row :gutter="0">
+        <c-form
           ref="elForm"
           :model="formData"
           :rules="rules"
           size="small"
           label-width="100px"
         >
-          <el-col :span="24">
-            <el-form-item
-              label="选项名"
-              prop="label"
-            >
-              <el-input
+          <c-col :span="24">
+            <c-form-item label="选项名" prop="label">
+              <c-input
                 v-model="formData.label"
                 placeholder="请输入选项名"
                 clearable
               />
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item
-              label="选项值"
-              prop="value"
-            >
-              <el-input
+            </c-form-item>
+          </c-col>
+          <c-col :span="24">
+            <c-form-item label="选项值" prop="value">
+              <c-input
                 v-model="formData.value"
                 placeholder="请输入选项值"
                 clearable
               >
-                <el-select
+                <c-select
                   slot="append"
                   v-model="dataType"
-                  :style="{width: '100px'}"
+                  :style="{ width: '100px' }"
                 >
-                  <el-option
+                  <c-option
                     v-for="(item, index) in dataTypeOptions"
                     :key="index"
                     :label="item.label"
                     :value="item.value"
                     :disabled="item.disabled"
                   />
-                </el-select>
-              </el-input>
-            </el-form-item>
-          </el-col>
-        </el-form>
-      </el-row>
+                </c-select>
+              </c-input>
+            </c-form-item>
+          </c-col>
+        </c-form>
+      </c-row>
       <div slot="footer">
-        <el-button
-          type="primary"
-          @click="handelConfirm"
-        >
+        <c-button type="primary" @click="handelConfirm">
           确定
-        </el-button>
-        <el-button @click="close">
+        </c-button>
+        <c-button @click="close">
           取消
-        </el-button>
+        </c-button>
       </div>
-    </el-dialog>
+    </c-dialog>
   </div>
 </template>
 <script>
-import { isNumberStr } from '@/utils/index';
-import { getTreeNodeId, saveTreeNodeId } from '@/utils/db';
+import { isNumberStr } from "@/utils/index";
+import { getTreeNodeId, saveTreeNodeId } from "@/utils/db";
 
 const id = getTreeNodeId();
 
@@ -91,27 +82,27 @@ export default {
         label: [
           {
             required: true,
-            message: '请输入选项名',
-            trigger: 'blur'
+            message: "请输入选项名",
+            trigger: "blur"
           }
         ],
         value: [
           {
             required: true,
-            message: '请输入选项值',
-            trigger: 'blur'
+            message: "请输入选项值",
+            trigger: "blur"
           }
         ]
       },
-      dataType: 'string',
+      dataType: "string",
       dataTypeOptions: [
         {
-          label: '字符串',
-          value: 'string'
+          label: "字符串",
+          value: "string"
         },
         {
-          label: '数字',
-          value: 'number'
+          label: "数字",
+          value: "number"
         }
       ]
     };
@@ -119,8 +110,8 @@ export default {
   computed: {},
   watch: {
     // eslint-disable-next-line func-names
-    'formData.value': function (val) {
-      this.dataType = isNumberStr(val) ? 'number' : 'string';
+    "formData.value": function(val) {
+      this.dataType = isNumberStr(val) ? "number" : "string";
     },
     id(val) {
       saveTreeNodeId(val);
@@ -137,16 +128,16 @@ export default {
     },
     onClose() {},
     close() {
-      this.$emit('update:visible', false);
+      this.$emit("update:visible", false);
     },
     handelConfirm() {
       this.$refs.elForm.validate(valid => {
         if (!valid) return;
-        if (this.dataType === 'number') {
+        if (this.dataType === "number") {
           this.formData.value = parseFloat(this.formData.value);
         }
         this.formData.id = this.id++;
-        this.$emit('commit', this.formData);
+        this.$emit("commit", this.formData);
         this.close();
       });
     }
@@ -154,5 +145,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

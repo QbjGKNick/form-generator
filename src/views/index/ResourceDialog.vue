@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog
+    <c-dialog
       v-bind="$attrs"
       title="外部资源引用"
       width="600px"
@@ -9,7 +9,7 @@
       @open="onOpen"
       @close="onClose"
     >
-      <el-input
+      <c-input
         v-for="(item, index) in resources"
         :key="index"
         v-model="resources[index]"
@@ -18,54 +18,44 @@
         prefix-icon="el-icon-link"
         clearable
       >
-        <el-button
+        <c-button
           slot="append"
           icon="el-icon-delete"
           @click="deleteOne(index)"
         />
-      </el-input>
-      <el-button-group class="add-item">
-        <el-button
+      </c-input>
+      <c-button-group class="add-item">
+        <c-button
           plain
           @click="addOne('https://lib.baomitu.com/jquery/1.8.3/jquery.min.js')"
         >
           jQuery1.8.3
-        </el-button>
-        <el-button
-          plain
-          @click="addOne('https://unpkg.com/http-vue-loader')"
-        >
+        </c-button>
+        <c-button plain @click="addOne('https://unpkg.com/http-vue-loader')">
           http-vue-loader
-        </el-button>
-        <el-button
-          icon="el-icon-circle-plus-outline"
-          plain
-          @click="addOne('')"
-        >
+        </c-button>
+        <c-button icon="el-icon-circle-plus-outline" plain @click="addOne('')">
           添加其他
-        </el-button>
-      </el-button-group>
+        </c-button>
+      </c-button-group>
       <div slot="footer">
-        <el-button @click="close">
+        <c-button @click="close">
           取消
-        </el-button>
-        <el-button
-          type="primary"
-          @click="handelConfirm"
-        >
+        </c-button>
+        <c-button type="primary" @click="handelConfirm">
           确定
-        </el-button>
+        </c-button>
       </div>
-    </el-dialog>
+    </c-dialog>
   </div>
 </template>
 <script>
-import { deepClone } from '@/utils/index';
+import { deepClone } from "@/utils/index";
 
 export default {
   components: {},
   inheritAttrs: false,
-  props: ['originResource'],
+  props: ["originResource"],
   data() {
     return {
       resources: null
@@ -77,16 +67,18 @@ export default {
   mounted() {},
   methods: {
     onOpen() {
-      this.resources = this.originResource.length ? deepClone(this.originResource) : [''];
+      /* eslint operator-linebreak: ["error", "before"] */
+      this.resources = this.originResource.length
+        ? deepClone(this.originResource)
+        : [""];
     },
-    onClose() {
-    },
+    onClose() {},
     close() {
-      this.$emit('update:visible', false);
+      this.$emit("update:visible", false);
     },
     handelConfirm() {
       const results = this.resources.filter(item => !!item) || [];
-      this.$emit('save', results);
+      this.$emit("save", results);
       this.close();
       if (results.length) {
         this.resources = results;
@@ -97,20 +89,19 @@ export default {
     },
     addOne(url) {
       if (this.resources.indexOf(url) > -1) {
-        this.$message('资源已存在');
+        this.$message("资源已存在");
       } else {
         this.resources.push(url);
       }
     }
   }
 };
-
 </script>
 <style lang="scss" scoped>
-.add-item{
+.add-item {
   margin-top: 8px;
 }
-.url-item{
+.url-item {
   margin-bottom: 12px;
 }
 </style>

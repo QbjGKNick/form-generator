@@ -1,6 +1,6 @@
 import loadScript from "./loadScript";
-// import ELEMENT from "element-ui";
-import CUI from "@cci/cui";
+import ELEMENT from "element-ui";
+// import CUI from "@cci/cui";
 import pluginsConfig from "./pluginsConfig";
 
 let tinymceObj;
@@ -13,7 +13,7 @@ export default function loadTinymce(cb) {
     return;
   }
 
-  const loading = CUI.Loading.service({
+  const loading = ELEMENT.Loading.service({
     fullscreen: true,
     lock: true,
     text: "富文本资源加载中...",

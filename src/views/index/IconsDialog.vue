@@ -1,6 +1,6 @@
 <template>
   <div class="icon-dialog">
-    <el-dialog
+    <c-dialog
       v-bind="$attrs"
       width="980px"
       :modal-append-to-body="false"
@@ -10,10 +10,10 @@
     >
       <div slot="title">
         选择图标
-        <el-input
+        <c-input
           v-model="key"
           size="mini"
-          :style="{width: '260px'}"
+          :style="{ width: '260px' }"
           placeholder="请输入图标名称"
           prefix-icon="el-icon-search"
           clearable
@@ -23,29 +23,30 @@
         <li
           v-for="icon in iconList"
           :key="icon"
-          :class="active===icon?'active-item':''"
+          :class="active === icon ? 'active-item' : ''"
           @click="onSelect(icon)"
         >
           <i :class="icon"></i>
           <div>{{ icon }}</div>
         </li>
       </ul>
-    </el-dialog>
+    </c-dialog>
   </div>
 </template>
 <script>
-import iconList from '@/utils/icon.json';
+/* eslint-disable */
+import iconList from "@/utils/icon.json";
 
 const originList = iconList.map(name => `el-icon-${name}`);
 
 export default {
   inheritAttrs: false,
-  props: ['current'],
+  props: ["current"],
   data() {
     return {
       iconList: originList,
       active: null,
-      key: ''
+      key: ""
     };
   },
   watch: {
@@ -60,21 +61,23 @@ export default {
   methods: {
     onOpen() {
       this.active = this.current;
-      this.key = '';
+      this.key = "";
       this.scrollToActive();
     },
     onClose() {},
     onSelect(icon) {
       this.active = icon;
-      this.$emit('select', icon);
-      this.$emit('update:visible', false);
+      this.$emit("select", icon);
+      this.$emit("update:visible", false);
     },
     scrollToActive() {
       this.$nextTick(() => {
-        const $activeItem = this.active ?
-          document.getElementsByClassName('active-item')[0] :
-          this.$refs.iconWrap.childNodes[0];
-        $activeItem && $activeItem.scrollIntoView && $activeItem.scrollIntoView();
+        const $activeItem = this.active
+          ? document.getElementsByClassName("active-item")[0]
+          : this.$refs.iconWrap.childNodes[0];
+        $activeItem &&
+          $activeItem.scrollIntoView &&
+          $activeItem.scrollIntoView();
       });
     }
   }
@@ -99,9 +102,9 @@ export default {
     &:hover {
       background: #f2f2f2;
     }
-    &.active-item{
+    &.active-item {
       background: #e1f3fb;
-      color: #7a6df0
+      color: #7a6df0;
     }
     > i {
       font-size: 30px;
