@@ -128,20 +128,39 @@ export const inputComponents = [
     "controls-position": "",
     disabled: false
   },
+  // {
+  //   __config__: {
+  //     label: "编辑器",
+  //     showLabel: true,
+  //     changeTag: true,
+  //     labelWidth: null,
+  //     tag: "tinymce",
+  //     tagIcon: "rich-text",
+  //     defaultValue: null,
+  //     span: 24,
+  //     layout: "colFormItem",
+  //     required: true,
+  //     regList: [],
+  //     document: "http://tinymce.ax-z.cn"
+  //   },
+  //   placeholder: "请输入",
+  //   height: 300, // 编辑器高度
+  //   branding: false // 隐藏右下角品牌烙印
+  // },
   {
     __config__: {
-      label: "编辑器",
+      label: "富文本编辑器",
       showLabel: true,
       changeTag: true,
       labelWidth: null,
-      tag: "tinymce",
+      tag: "cp-tinymce",
       tagIcon: "rich-text",
       defaultValue: null,
       span: 24,
       layout: "colFormItem",
-      required: true,
+      require: true,
       regList: [],
-      document: "http://tinymce.ax-z.cn"
+      document: ""
     },
     placeholder: "请输入",
     height: 300, // 编辑器高度
@@ -240,7 +259,7 @@ export const selectComponents = [
       label: "单选框组",
       labelWidth: null,
       showLabel: true,
-      tag: "el-radio-group",
+      tag: "c-radio-group",
       tagIcon: "radio",
       changeTag: true,
       defaultValue: undefined,
@@ -271,7 +290,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "多选框组",
-      tag: "el-checkbox-group",
+      tag: "c-checkbox-group",
       tagIcon: "checkbox",
       defaultValue: [],
       span: 24,
@@ -306,7 +325,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "开关",
-      tag: "el-switch",
+      tag: "c-switch",
       tagIcon: "switch",
       defaultValue: false,
       span: 24,
@@ -330,7 +349,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "滑块",
-      tag: "el-slider",
+      tag: "c-slider",
       tagIcon: "slider",
       defaultValue: null,
       span: 24,
@@ -352,7 +371,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "时间选择",
-      tag: "el-time-picker",
+      tag: "c-time-picker",
       tagIcon: "time",
       defaultValue: null,
       span: 24,
@@ -377,7 +396,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "时间范围",
-      tag: "el-time-picker",
+      tag: "c-time-picker",
       tagIcon: "time-range",
       span: 24,
       showLabel: true,
@@ -402,7 +421,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "日期选择",
-      tag: "el-date-picker",
+      tag: "c-date-picker",
       tagIcon: "date",
       defaultValue: null,
       showLabel: true,
@@ -426,7 +445,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "日期范围",
-      tag: "el-date-picker",
+      tag: "c-date-picker",
       tagIcon: "date-range",
       defaultValue: null,
       span: 24,
@@ -452,7 +471,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "评分",
-      tag: "el-rate",
+      tag: "c-rate",
       tagIcon: "rate",
       defaultValue: 0,
       span: 24,
@@ -474,7 +493,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "颜色选择",
-      tag: "el-color-picker",
+      tag: "c-color-picker",
       tagIcon: "color",
       span: 24,
       defaultValue: null,
@@ -494,7 +513,7 @@ export const selectComponents = [
   {
     __config__: {
       label: "上传",
-      tag: "el-upload",
+      tag: "c-upload",
       tagIcon: "upload",
       layout: "colFormItem",
       defaultValue: null,
@@ -565,7 +584,7 @@ export const layoutComponents = [
     __config__: {
       layout: "colFormItem",
       tagIcon: "table",
-      tag: "el-table",
+      tag: "c-table",
       document: "https://element.eleme.cn/#/zh-CN/component/table",
       span: 24,
       formId: 101,
@@ -585,7 +604,7 @@ export const layoutComponents = [
         {
           __config__: {
             layout: "raw",
-            tag: "el-table-column",
+            tag: "c-table-column",
             renderKey: 15957617660153
           },
           prop: "date",
@@ -594,7 +613,7 @@ export const layoutComponents = [
         {
           __config__: {
             layout: "raw",
-            tag: "el-table-column",
+            tag: "c-table-column",
             renderKey: 15957617660152
           },
           prop: "address",
@@ -603,7 +622,7 @@ export const layoutComponents = [
         {
           __config__: {
             layout: "raw",
-            tag: "el-table-column",
+            tag: "c-table-column",
             renderKey: 15957617660151
           },
           prop: "name",
@@ -612,7 +631,7 @@ export const layoutComponents = [
         {
           __config__: {
             layout: "raw",
-            tag: "el-table-column",
+            tag: "c-table-column",
             renderKey: 1595774496335,
             children: [
               {

@@ -105,6 +105,7 @@ const layouts = {
   },
   rowFormItem(scheme) {
     const config = scheme.__config__;
+
     const type = scheme.type === "default" ? "" : `type="${scheme.type}"`;
     const justify =
       scheme.type === "default" ? "" : `justify="${scheme.justify}"`;
@@ -361,6 +362,12 @@ const tags = {
     if (child) child = `\n${child}\n`; // 换行
     return `<${tag} ${ref} ${fileList} ${action} ${autoUpload} ${multiple} ${beforeUpload} ${listType} ${accept} ${name} ${disabled}>${child}</${tag}>`;
   },
+  "cp-tinymce": el => {
+    const { tag, vModel, placeholder } = attrBuilder(el);
+    const height = el.height ? `:height="${el.height}"` : "";
+    const branding = el.branding ? `:branding="${el.branding}"` : "";
+    return `<${tag} ${vModel} ${placeholder} ${height} ${branding}></${tag}>`;
+  },
   tinymce: el => {
     const { tag, vModel, placeholder } = attrBuilder(el);
     const height = el.height ? `:height="${el.height}"` : "";
@@ -380,7 +387,7 @@ function attrBuilder(el) {
   };
 }
 
-// el-buttin 子级
+// c-buttin 子级
 function buildElButtonChild(scheme) {
   const children = [];
   const slot = scheme.__slot__ || {};
@@ -415,7 +422,7 @@ function buildElSelectChild(scheme) {
   return children.join("\n");
 }
 
-// el-radio-group 子级
+// c-radio-group 子级
 function buildElRadioGroupChild(scheme) {
   const children = [];
   const slot = scheme.__slot__;
@@ -430,7 +437,7 @@ function buildElRadioGroupChild(scheme) {
   return children.join("\n");
 }
 
-// el-checkbox-group 子级
+// c-checkbox-group 子级
 function buildElCheckboxGroupChild(scheme) {
   const children = [];
   const slot = scheme.__slot__;
@@ -446,7 +453,7 @@ function buildElCheckboxGroupChild(scheme) {
   return children.join("\n");
 }
 
-// el-upload 子级
+// c-upload 子级
 function buildElUploadChild(scheme) {
   const list = [];
   const config = scheme.__config__;

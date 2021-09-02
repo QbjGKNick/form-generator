@@ -186,7 +186,6 @@ export default {
       this.htmlCode = makeUpHtml(this.formData, type);
       this.jsCode = makeUpJs(this.formData, type);
       this.cssCode = makeUpCss(this.formData);
-
       loadBeautifier(btf => {
         beautifier = btf;
         this.htmlCode = beautifier.html(this.htmlCode, beautifierConf.html);

@@ -1,12 +1,15 @@
 import Vue from "vue";
 import Cui from "@cci/cui";
 import "@cci/cui/lib/theme-default/index.css";
+import "monaco-editor/min/vs/editor/editor.main.css";
 import { loadScriptQueue } from "@/utils/loadScript";
 import axios from "axios";
-import Tinymce from "@/components/tinymce/index.vue";
+// import Tinymce from "@/components/tinymce/index.vue";
+import CpTinymce from "@cci/cp-tinymce";
 
 Vue.use(Cui);
-Vue.component("tinymce", Tinymce);
+// Vue.component("tinymce", Tinymce);
+Vue.component("cp-tinymce", CpTinymce);
 Vue.prototype.$axios = axios;
 
 const $previewApp = document.getElementById("previewApp");
@@ -37,7 +40,6 @@ function init(event) {
     }
 
     $previewApp.innerHTML = `${links}<style>${code.css}</style><div id="app"></div>`;
-
     if (Array.isArray(code.scripts) && code.scripts.length > 0) {
       loadScriptQueue(code.scripts, () => {
         newVue(attrs, code.js, code.html);

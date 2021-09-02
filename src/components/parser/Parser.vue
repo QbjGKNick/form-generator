@@ -89,7 +89,6 @@ function renderFormItem(h, elementList) {
   return elementList.map(scheme => {
     const config = scheme.__config__;
     const layout = layouts[config.layout];
-
     if (layout) {
       return layout.call(this, h, scheme);
     }

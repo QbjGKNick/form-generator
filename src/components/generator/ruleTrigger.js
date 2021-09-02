@@ -12,5 +12,5 @@ export default {
   "c-time-picker": "change",
   "c-date-picker": "change",
   "c-rate": "change",
-  tinymce: "blur"
+  "cp-tinymce": "blur"
 };

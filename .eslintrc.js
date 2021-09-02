@@ -17,6 +17,7 @@ module.exports = {
     "comma-dangle": [2, "never"],
     "space-before-function-paren": 0,
     "operator-linebreak": [2, "after"],
+    "implicit-arrow-linebreak": ["error", "beside"],
     "vue/html-self-closing": [
       "error",
       {

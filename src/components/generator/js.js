@@ -90,8 +90,8 @@ function buildAttributes(
     buildProps(scheme, propsList);
   }
 
-  // 处理el-upload的action
-  if (scheme.action && config.tag === "el-upload") {
+  // 处理c-upload的action
+  if (scheme.action && config.tag === "c-upload") {
     uploadVarList.push(
       `${scheme.__vModel__}Action: '${scheme.action}',
       ${scheme.__vModel__}fileList: [],`
@@ -132,8 +132,7 @@ function mixinMethod(type) {
     file: confGlobal.formBtns
       ? {
           submitForm: `submitForm() {
-        this.$refs['${confGlobal.formRef}'].validate(valid => {
-          if(!valid) return
+        this.$refs['${confGlobal.formRef}'].validate().then(() => {
           // TODO 提交表单
         })
       },`,
@@ -230,7 +229,7 @@ function buildProps(scheme, propsList) {
   propsList.push(str);
 }
 
-// el-upload的BeforeUpload
+// c-upload的BeforeUpload
 function buildBeforeUpload(scheme) {
   const config = scheme.__config__;
   const unitNum = units[config.sizeUnit];
@@ -259,7 +258,7 @@ function buildBeforeUpload(scheme) {
   return returnList.length ? str : "";
 }
 
-// el-upload的submit
+// c-upload的submit
 function buildSubmitUpload(scheme) {
   const str = `submitUpload() {
     this.$refs['${scheme.__vModel__}'].submit()

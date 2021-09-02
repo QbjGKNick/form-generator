@@ -25,15 +25,15 @@
         />
       </c-input>
       <c-button-group class="add-item">
-        <c-button
+        <!-- <c-button
           plain
           @click="addOne('https://lib.baomitu.com/jquery/1.8.3/jquery.min.js')"
         >
           jQuery1.8.3
-        </c-button>
-        <c-button plain @click="addOne('https://unpkg.com/http-vue-loader')">
+        </c-button> -->
+        <!-- <c-button plain @click="addOne('https://unpkg.com/http-vue-loader')">
           http-vue-loader
-        </c-button>
+        </c-button> -->
         <c-button icon="el-icon-circle-plus-outline" plain @click="addOne('')">
           添加其他
         </c-button>
